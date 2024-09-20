@@ -6,6 +6,3 @@ resource "aws_vpc" "gourmet-vpc" {
     Name = "gourmet-vpc"
   }
 }
-output "vpc_id" {
-  value = aws_vpc.gourmet-vpc.id
-}

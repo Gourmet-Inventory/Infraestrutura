@@ -1,14 +1,14 @@
 variable "access_key" {
   default = ""
-  type        = string
+  type    = string
 }
 
 variable "secret_access_key" {
   default = ""
-  type        = string
+  type    = string
 }
 
 variable "session_token" {
   default = ""
-  type      = string
+  type    = string
 }

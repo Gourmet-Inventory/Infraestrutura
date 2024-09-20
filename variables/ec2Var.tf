@@ -5,6 +5,6 @@ variable "ami" {
 }
 variable "tipo_instancia" {
   type        = string
-  default     = "ami-06640050dc3f556bb"
+  default     = "t1.micro"
   description = "tipo de instancia"
 }
