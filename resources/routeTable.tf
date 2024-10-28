@@ -1,3 +1,4 @@
+
 ###Route Table Privado
 
 resource "aws_route_table" "RouteTablePublica" {
