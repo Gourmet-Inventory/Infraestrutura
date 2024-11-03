@@ -19,6 +19,8 @@ ssh -i "Gourmet-keys.pem" ec2-user@
 #### Backend B
 ssh -i "Gourmet-keys.pem" ec2-user@
 
+---
+
 ## Docker
 
 ### Java
@@ -32,5 +34,7 @@ sudo docker build -t --no-cache site-gourmet-inventory:latest
 sudo docker tag site-gourmet-inventory:latest voltty/gourmet-inventory:latest
 sudo docker push voltty/site-gourmet-inventory:latest
 sudo docker run -d -p 80:80  voltty/site-gourmet-inventory:latest
+
+___
 
 
