@@ -1,0 +1,1 @@
+sudo docker run -i -p 80:80 --network gourmet-net site-gourmet-inventory:latest

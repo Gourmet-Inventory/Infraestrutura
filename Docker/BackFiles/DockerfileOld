@@ -1,0 +1,33 @@
+# Etapa 1: Usar uma imagem Maven com Java 17 (usando Eclipse Temurin)
+FROM maven:3.8.8-eclipse-temurin-17 AS build
+
+# Definir o diretório de trabalho no container
+WORKDIR /app
+
+# Clonar o repositório do GitHub
+RUN git clone https://github.com/Gourmet-Inventory/main.git .
+
+WORKDIR /app/gourmet-inventory-project
+
+RUN ls -la
+
+# Executar o Maven para fazer o build da aplicação
+RUN mvn clean compile -Dfile.encoding=UTF-8 -X -e
+
+# Etapa 2: Criar um container mais leve com a aplicação empacotada
+FROM eclipse-temurin:17-jdk-alpine
+
+RUN ls -LA
+
+# Definir o diretório de trabalho no container final
+WORKDIR /app
+
+# Copiar o JAR construído na etapa anterior para o container final
+COPY --from=build /target/*.jar app.jar
+
+# Expor a porta que o Spring Boot usa
+EXPOSE 8080
+
+# Definir o comando de inicialização da aplicação
+ENTRYPOINT ["java", "-jar", "app.jar"]
+

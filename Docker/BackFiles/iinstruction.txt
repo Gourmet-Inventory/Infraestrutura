@@ -1,0 +1,1 @@
+sudo docker run -d --name java1 -e aws_access_key_id=Y76562378 -e aws_secret_acess_key=312312312312345 -e aws_session_token=321312321 -p 8080:8080 --network gourmet-net java:latest
