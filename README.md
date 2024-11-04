@@ -13,13 +13,13 @@ terraform destroy
 ## Entrar nas maquinas
 
 ### testar maquinas
-scp -i "Gourmet-keys.pem" Gourmet-keys.pem ec2-user@3.210.104.99:/home/ec2-user/
+scp -i "Gourmet-keys.pem" Gourmet-keys.pem ubuntu@3.210.104.99:/home/ubuntu/
 #### Front
-ssh -i "Gourmet-keys.pem" ec2-user@3.210.104.99
+ssh -i "Gourmet-keys.pem" ubuntu@3.210.104.99
 #### Backend A
-ssh -i "Gourmet-keys.pem" ec2-user@
+ssh -i "Gourmet-keys.pem" ubuntu@10.0.0.201
 #### Backend B
-ssh -i "Gourmet-keys.pem" ec2-user@
+ssh -i "Gourmet-keys.pem" ubuntu@10.0.0.202
 
 ---
 
