@@ -1,0 +1,61 @@
+version: '3'
+x-common-variables: &aws
+  AWS_ACCESS_KEY_ID: Y76562378
+  AWS_SECRET_ACCESS_KEY: 312312312312345
+  AWS_SESSION_TOKEN: 321312321
+services:
+  nginx:
+    image: voltty/site-gourmet-inventory:latest
+    container_name: nginx
+    networks:
+      - backend_network
+    ports:
+      - "80:80"
+    depends_on:
+      - java1
+      - java2
+      - java3
+      - java4
+
+  java1:
+    image: voltty/gourmet-inventory:latest
+    container_name: java1
+    ports:
+      - "8080:8080"
+    environment:
+      <<: *aws
+    networks:
+      - backend_network
+
+  java2:
+    image: voltty/gourmet-inventory:latest
+    container_name: java2
+    ports:
+      - "8081:8080"
+    environment:
+      <<: *aws
+    networks:
+      - backend_network
+
+  java3:
+    image: voltty/gourmet-inventory:H2-PG
+    container_name: java3
+    ports:
+      - "8082:8080"
+    environment:
+      <<: *aws
+    networks:
+      - backend_network
+
+  java4:
+    image: voltty/gourmet-inventory:H2-PG
+    container_name: java4
+    ports:
+      - "8083:8080"
+    environment:
+      <<: *aws
+    networks:
+      - backend_network
+networks:
+  backend_network:
+    driver: bridge
